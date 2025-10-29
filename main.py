@@ -2,6 +2,10 @@ import sys
 import os
 import cv2
 import pandas as pd
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.utils import to_categorical
+import numpy as np
+
 
 def categorize_age(age):
     if age <= 12:
@@ -42,4 +46,3 @@ if __name__ == '__main__':
 
     dataset = load_dataset(path)
     # df = pd.DataFrame({'age': [x["age"] for x in dataset]})
-    main()
