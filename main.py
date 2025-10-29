@@ -1,3 +1,4 @@
+import sys
 import os
 import cv2
 import pandas as pd
@@ -11,6 +12,7 @@ def categorize_age(age):
         return 'adult'
     else:
         return 'senior'
+
 
 def load_dataset(path):
     dataset = []
@@ -26,7 +28,7 @@ def load_dataset(path):
         dataset.append({
             "image": img,
             "age": int(age),
-            "gender": gender,
+            "gender": "male" if gender == '0' else 'female',
             "race": race,
             "date": date,
         })
@@ -36,6 +38,8 @@ def load_dataset(path):
 
 
 if __name__ == '__main__':
-    dataset = load_dataset("dataset")
+    path = sys.argv[1]
+
+    dataset = load_dataset(path)
     # df = pd.DataFrame({'age': [x["age"] for x in dataset]})
     main()
