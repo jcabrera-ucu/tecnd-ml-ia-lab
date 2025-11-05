@@ -80,7 +80,8 @@ if __name__ == '__main__':
     plt.plot(history.history['val_accuracy'], label='val acc')
     plt.legend()
     plt.title('Evolución de la precisión')
-    plt.show()
+    plt.savefig('out.png')
 
     # Ejemplo de predicción
     pred = model.predict(x_test[:5])
+    print(pred)
